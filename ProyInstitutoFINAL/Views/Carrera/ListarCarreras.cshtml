@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ProyInstitutoFINAL.Models.Carrera>
+
+@{
+    ViewBag.Title = "ListarCarreras";
+}
+
+<h2>ListarCarreras</h2>
+
+<p>
+    @Html.ActionLink("Create New", "AgregarCarrera")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codcar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nomcar)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codcar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nomcar)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "ActualizarCarrera", new {  id=item.codcar  }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
